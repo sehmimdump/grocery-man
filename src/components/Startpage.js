@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import "./css/Startpage.css";
-
 import { RingLoader } from "react-spinners";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-// My Components
 
 class Startpage extends Component {
   state = {
@@ -13,7 +9,6 @@ class Startpage extends Component {
     initalClass: "App-Wrapper",
     loadingScreen: false
   };
-
   // Onclick This function Loads and displays loading screen for 1 sec
   loadingScreenOnClick = () => {
     this.setState({ loadingScreen: true });
