@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  text-decoration: none;
+
+}
+
+.App-header {
+  background-image: linear-gradient(to right bottom, rgba(38, 164, 46, 0.838), rgba(255, 98, 0, 0.735));
+  height: 95vh;
+  padding: 20px;
+  color: white;
+}
+
+.App-title{
+  display: block;
+  margin: 7% 0 0 0;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 23px;
+}
+
+.App-title-primary{
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 18px;
+}
+
