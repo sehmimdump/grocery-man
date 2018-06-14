@@ -43,5 +43,4 @@ class Startpage extends Component {
     return <div className="App">{isLoading}</div>;
   }
 }
-
 export default Startpage;
