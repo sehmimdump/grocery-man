@@ -13,20 +13,20 @@ class Card extends Component {
   };
   render() {
     // Method to zoom in on the item clicked || not finished ||
-    const handleCheck = e => {
+    const handleCheck = (data) => {
       this.setState({
         zoom: true,
-        selectedCard: e.target.getAttribute(this.index)
+        selectedCard: data.title,
+        // itemsInCart: itemsInCart[(data.item)]
       });
-      console.log(this.index);
     };
-    const addItem = () => {
-      this.props.addItemToCart(this.state.NumberOfItemsInCart);
-      //////////// ADD THE NAME OF THE ITEM SELECTED /////////
+    const addItem = (data) => {
+    //////////// PROP COMES FROM ShopPage /////////
+      this.props.addItemToCart(data);
     };
-    const DeleteItem = () => {
-      this.props.DeleteItemFromCart(this.state.NumberOfItemsInCart);
-      //////////// ADD THE NAME OF THE ITEM SELECTED /////////
+    const deleteItem = (data) => {
+    //////////// PROP COMES FROM ShopPage /////////
+      this.props.deleteItemFromCart(data);
     };
     return (
       <div className="band">
@@ -35,20 +35,18 @@ class Card extends Component {
             <div
               key={item.id}
               className="items"
-              onClick={handleCheck}
+              onClick={() => handleCheck(Data[index])}
               index={this.state.index}
             >
               <div className="thumb">{item.title} </div>
               <img className="item-images" src={item.img} alt={item.title} />
               <div className="item-footer"> Price ${item.price}/lb </div>
               <button className="btn btn-details"> Details </button>
-              <button onClick={addItem} className="btn btn-danger">
-                {" "}
-                +{" "}
+              <button onClick={()=>addItem(Data[index])} className="btn btn-danger">
+                +
               </button>
-              <button onClick={DeleteItem} className="btn btn-danger">
-                {" "}
-                -{" "}
+              <button onClick={()=>deleteItem(Data[index])} className="btn btn-danger">
+                -
               </button>
             </div>
           );

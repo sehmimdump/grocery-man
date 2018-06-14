@@ -7,17 +7,28 @@ import Card from "./Card";
 class ShopPage extends Component {
   state = {
     NumberOfItemsInCart: 0,
-    itemsInCart: ["Apple"]
+    itemsInCart: [],
+    selectedCard: ""
   };
   // Method to push Items Clicked in the Array and increment the Cart
-  addItem = () => {
+  addItem = (data) => {
     this.setState({
-      NumberOfItemsInCart: this.state.NumberOfItemsInCart + 1
+      NumberOfItemsInCart: this.state.NumberOfItemsInCart + 1,
+      selectedCard : data.title,
     });
-  };
-  DeleteItemFromCart = () => {
+    this.state.itemsInCart.includes(this.state.selectedCard) ? 
+    console.log("Already in The Cart") :
     this.setState({
-      NumberOfItemsInCart: this.state.NumberOfItemsInCart - 1
+      itemsInCart : [...this.state.itemsInCart, data.title]
+    })
+  };
+  deleteItemFromCart = (itemToDelete) => {
+    const newArray = this.state.itemsInCart;
+    this.state.NumberOfItemsInCart <= 0 ? console.log("Non-Negative") :
+    newArray.pop(itemToDelete);
+    this.setState({
+      NumberOfItemsInCart: this.state.NumberOfItemsInCart - 1,
+      itemsInCart : newArray
     });
   };
   render() {
@@ -32,14 +43,15 @@ class ShopPage extends Component {
           <div>Cart:{this.state.NumberOfItemsInCart}</div>
           <div>
             {this.state.itemsInCart.map(item => {
-              return item;
+               <br />
+              return (item);
             })}
           </div>
           <button className="btn btn-primary"> Cash Out </button>
         </div>
         <Card
-          addItemToCart={this.addItem.bind(this)}
-          DeleteItemFromCart={this.DeleteItemFromCart.bind(this)}
+          addItemToCart={this.addItem}
+          deleteItemFromCart={this.deleteItemFromCart}
         />
       </div>
     );
