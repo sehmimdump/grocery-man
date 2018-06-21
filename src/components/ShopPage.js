@@ -4,34 +4,46 @@ import "./css/Shoppage.css";
 // My Components
 import Card from "./Card";
 
+// DUmmy data
+
 class ShopPage extends Component {
   state = {
     NumberOfItemsInCart: 0,
-    itemsInCart: [],
-    selectedCard: ""
+    itemsInCart: []
   };
   // Method to push Items Clicked in the Array and increment the Cart
   addItem = (data) => {
     this.setState({
-      NumberOfItemsInCart: this.state.NumberOfItemsInCart + 1,
       selectedCard : data.title,
     });
-    this.state.itemsInCart.includes(this.state.selectedCard) ? 
-    console.log("Already in The Cart") :
+    this.state.itemsInCart.includes(data.title) ? 
+      alert("Item Already in Cart")
+     :
     this.setState({
+      NumberOfItemsInCart: this.state.NumberOfItemsInCart + 1,
       itemsInCart : [...this.state.itemsInCart, data.title]
     })
   };
   deleteItemFromCart = (itemToDelete) => {
     const newArray = this.state.itemsInCart;
-    this.state.NumberOfItemsInCart <= 0 ? console.log("Non-Negative") :
-    newArray.pop(itemToDelete);
-    this.setState({
-      NumberOfItemsInCart: this.state.NumberOfItemsInCart - 1,
-      itemsInCart : newArray
-    });
+    if ((this.state.NumberOfItemsInCart <= 0)) {
+      alert("Non-Negative")
+    }
+    else if (!newArray.includes(itemToDelete.title)){
+      alert("Item not in cart")
+    }
+    else{
+      newArray.splice(newArray.indexOf(itemToDelete.title), 1)
+      this.state.NumberOfItemsInCart <=0 ? console.log("no items in bag") :
+      this.setState({
+        NumberOfItemsInCart: this.state.NumberOfItemsInCart - 1,
+        itemsInCart : newArray
+      });
+    }
   };
+
   render() {
+    
     return (
       <div className="ShopPage">
         <div className="header-wrapper">
@@ -40,13 +52,17 @@ class ShopPage extends Component {
           </div>
         </div>
         <div className="header-right">
-          <div>Cart:{this.state.NumberOfItemsInCart}</div>
-          <div>
+          <div># of Items:{this.state.NumberOfItemsInCart}</div>
+          <ul>
             {this.state.itemsInCart.map(item => {
-               <br />
-              return (item);
+              return (
+                <li key={item}> {
+                  (item)
+                   }
+               </li>
+              )
             })}
-          </div>
+          </ul>
           <button className="btn btn-primary"> Cash Out </button>
         </div>
         <Card

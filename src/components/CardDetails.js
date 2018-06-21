@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Css
-import "./css/Card.css"
+import "./css/CardDetails.css"
 
 // Data
 import Data from "./DummyData";
@@ -10,12 +10,9 @@ import Data from "./DummyData";
 import Card from "./Card";
 
 const CardDetails = (prop) => {
-    const state ={
-        initalClass: "items"
-    }
     return (
-    <div className="Card-details">
-        {Data.title}
+    <div className="Card-details" title={this}>
+        {Data.title} YOooooo
     </div>)
 }
 

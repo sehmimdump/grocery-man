@@ -39,3 +39,9 @@
     }
   }
   
+  .message{
+    font-size: 100px;
+    background-color: red;
+    width: 300px;
+    height: 300px;
+  }

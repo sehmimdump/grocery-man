@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 // Css
 import "./css/Card.css";
+import "./css/CardDetails.css"
 // Data
 import Data from "./DummyData";
+import CardDetails from "./CardDetails";
 
 class Card extends Component {
   state = {
@@ -28,6 +30,11 @@ class Card extends Component {
     //////////// PROP COMES FROM ShopPage /////////
       this.props.deleteItemFromCart(data);
     };
+    // ZOOM IN WHEN DETAILS CLICKED
+    const zoomOnclick = (data) =>{
+      <CardDetails title={data.title} />
+      console.log(data.title)
+    }
     return (
       <div className="band">
         {Data.map((item, index) => {
@@ -41,7 +48,7 @@ class Card extends Component {
               <div className="thumb">{item.title} </div>
               <img className="item-images" src={item.img} alt={item.title} />
               <div className="item-footer"> Price ${item.price}/lb </div>
-              <button className="btn btn-details"> Details </button>
+              <button onClick={()=>zoomOnclick(Data[index])} className="btn btn-details"> Details </button>
               <button onClick={()=>addItem(Data[index])} className="btn btn-danger">
                 +
               </button>
