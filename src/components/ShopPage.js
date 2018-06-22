@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./css/Shoppage.css";
 // My Components
 import Card from "./Card";
+import CardDetails from "./CardDetails";
 
 // DUmmy data
 
@@ -41,6 +42,8 @@ class ShopPage extends Component {
       });
     }
   };
+
+
 
   render() {
     
