@@ -10,24 +10,21 @@ class Card extends Component {
   state = {
     zoom: false,
     NumberOfItemsInCart: 0,
-    itemsInCart: []
+    itemsInCart: [],
+    showDetails: false,
+    selectedIted: ''
+  };
+
+
+  showDiv = (item) => {
+    this.setState({
+      showDetails: !this.state.showDetails,
+      selectedIted: item
+    });
+    // console.log('---->', item);
   };
 
   render() {
-    // Method to zoom in on the item clicked || not finished ||
-    const showDiv = (data) => {
-      this.setState({
-        zoom: !this.state.zoom
-      });
-      {()=>zoomHandle(data)}
-    };
-    // const handleCheck = (data) => {
-    //   this.setState({
-    //     zoom: true,
-    //     selectedCard: data.title,
-    //     // itemsInCart: itemsInCart[(data.item)]
-    //   });
-    // };
     const addItem = data => {
       //////////// PROP COMES FROM ShopPage /////////
       this.props.addItemToCart(data);
@@ -36,40 +33,36 @@ class Card extends Component {
       //////////// PROP COMES FROM ShopPage /////////
       this.props.deleteItemFromCart(data);
     };
-    // // ZOOM IN WHEN DETAILS CLICKED
-    // const zoomOnclick = (data) =>{
-    //   <CardDetails title={data.title} />
-    //   console.log(data.title)
-    // }
-    const zoomHandle = item => {
-      {this.state.zoom ? (
+
+    const showDetails = this.state.showDetails ? (
         <div>
           <div className="Card-details">
-            <h1> {item.title} </h1>
-            <img className="item-images" src={item.img} alt={item.title} />
-            <p>Details: {item.details} </p>
-            <div>Price: {item.price}/lb </div>
-            <div>Stock: {item.stock} Batches </div>
-            <button> Add To cart </button>
+            <h1> {this.state.selectedIted.title} </h1>
+            <img className="item-images" src={this.state.selectedIted.img} alt={this.state.selectedIted.title} />
+            <p>Details: {this.state.selectedIted.details} </p>
+            <div>Price: {this.state.selectedIted.price}/lb </div>
+            <div>Stock: {this.state.selectedIted.stock} Batches </div>
+            <button onClick={()=>addItem(this.state.selectedIted)} > Add To cart </button>
+            <button onClick={()=>deleteItem(this.state.selectedIted)} > Remove from cart </button>
           </div>
-          <button className="Card-details-button" onClick={showDiv}>
+          <button className="Card-details-button" onClick={this.showDiv}>
             {" "}
             Back{" "}
           </button>
         </div>
-      ) : null}
-    }
+      ) : null
+
     return (
       <div className="band">
+        { showDetails }
         {Data.map((item, index) => {
           return (
             <div key={item.id} className="items" index={this.state.index}>
               <div className="thumb">{item.title} </div>
               <img className="item-images" src={item.img} alt={item.title} />
               <div className="item-footer"> Price ${item.price}/lb </div>
-              <button onClick={()=>showDiv(Data[index])} className="btn btn-details">
-                {" "}
-                Details{" "}
+              <button onClick={()=>this.showDiv(Data[index])} className="btn btn-details">
+                Details
               </button>
               <button
                 onClick={() => addItem(Data[index])}
