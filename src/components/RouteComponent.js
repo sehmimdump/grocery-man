@@ -4,13 +4,16 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ShopPage from "./ShopPage";
 import Startpage from "./Startpage";
 import ContactPage from "./ContactPage";
+import LoginPage from "./LoginPage";
 //CSS 
 import './css/Startpage.css';
 
 const navbarData = [
+  { title: 'Login', url: 'login', id:4 },
   { title: 'Contact', url: '/contact', id: 3 },
   { title: 'Shop', url: '/shop', id: 2},
   { title: 'Home', url: '/', id: 1}
+  
 ];
 
 class RouteComponent extends Component {
@@ -36,6 +39,7 @@ class RouteComponent extends Component {
         <Route exact path="/" component={Startpage}/>
         <Route path="/shop" component={ShopPage}/>
         <Route path="/contact" component={ContactPage}/>
+        <Route path="/login" component={LoginPage}/>
       </div>
     </Router>
     );

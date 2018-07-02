@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // Css
 import "./css/Card.css";
-import "./css/CardDetails.css"
+import "./css/CardDetails.css";
 // Data
 import Data from "./DummyData";
 import CardDetails from "./CardDetails";
@@ -10,17 +10,17 @@ class Card extends Component {
   state = {
     zoom: false,
     NumberOfItemsInCart: 0,
-    itemsInCart: [],
+    itemsInCart: []
   };
-
 
   render() {
     // Method to zoom in on the item clicked || not finished ||
-    const showDiv = () => {
+    const showDiv = (data) => {
       this.setState({
-        zoom : !this.state.zoom
-      })
-    }
+        zoom: !this.state.zoom
+      });
+      {()=>zoomHandle(data)}
+    };
     // const handleCheck = (data) => {
     //   this.setState({
     //     zoom: true,
@@ -28,12 +28,12 @@ class Card extends Component {
     //     // itemsInCart: itemsInCart[(data.item)]
     //   });
     // };
-    const addItem = (data) => {
-    //////////// PROP COMES FROM ShopPage /////////
+    const addItem = data => {
+      //////////// PROP COMES FROM ShopPage /////////
       this.props.addItemToCart(data);
     };
-    const deleteItem = (data) => {
-    //////////// PROP COMES FROM ShopPage /////////
+    const deleteItem = data => {
+      //////////// PROP COMES FROM ShopPage /////////
       this.props.deleteItemFromCart(data);
     };
     // // ZOOM IN WHEN DETAILS CLICKED
@@ -41,35 +41,53 @@ class Card extends Component {
     //   <CardDetails title={data.title} />
     //   console.log(data.title)
     // }
+    const zoomHandle = item => {
+      {this.state.zoom ? (
+        <div>
+          <div className="Card-details">
+            <h1> {item.title} </h1>
+            <img className="item-images" src={item.img} alt={item.title} />
+            <p>Details: {item.details} </p>
+            <div>Price: {item.price}/lb </div>
+            <div>Stock: {item.stock} Batches </div>
+            <button> Add To cart </button>
+          </div>
+          <button className="Card-details-button" onClick={showDiv}>
+            {" "}
+            Back{" "}
+          </button>
+        </div>
+      ) : null}
+    }
     return (
       <div className="band">
         {Data.map((item, index) => {
           return (
-            <div
-              key={item.id}
-              className="items"
-             
-              index={this.state.index}
-            >
+            <div key={item.id} className="items" index={this.state.index}>
               <div className="thumb">{item.title} </div>
               <img className="item-images" src={item.img} alt={item.title} />
               <div className="item-footer"> Price ${item.price}/lb </div>
-              <button onClick={showDiv} className="btn btn-details"> Details </button>
-              <button onClick={()=>addItem(Data[index])} className="btn btn-danger">
+              <button onClick={()=>showDiv(Data[index])} className="btn btn-details">
+                {" "}
+                Details{" "}
+              </button>
+              <button
+                onClick={() => addItem(Data[index])}
+                className="btn btn-danger"
+              >
                 +
               </button>
-              <button onClick={()=>deleteItem(Data[index])} className="btn btn-danger">
+              <button
+                onClick={() => deleteItem(Data[index])}
+                className="btn btn-danger"
+              >
                 -
               </button>
+
             </div>
           );
         })}
-        {
-          this.state.zoom ? <div> < CardDetails showDiv={this.showDiv} /> <button className="Card-details-button" onClick={showDiv}> Back </button></div> : null
-        }
-
       </div>
-
     );
   }
 }

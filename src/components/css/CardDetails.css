@@ -1,11 +1,12 @@
 .Card-details{
     position: fixed;
     z-index: 2;
-    width: 600px;
-    height: 400px;
-    left: 25%;
-    top: 20%;
-    background-color: grey;
+    width: 800px;
+    height: 600px;
+    left: 20%;
+    top: 10%;
+    background-color: rgba(235, 222, 222, 0.19)
+    
 }
 
 .Card-details-button{
