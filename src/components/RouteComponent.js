@@ -5,6 +5,7 @@ import ShopPage from "./ShopPage";
 import Startpage from "./Startpage";
 import ContactPage from "./ContactPage";
 import LoginPage from "./LoginPage";
+import CheckOutPage from "./CheckOutPage";
 //CSS 
 import './css/Startpage.css';
 
@@ -40,6 +41,7 @@ class RouteComponent extends Component {
         <Route path="/shop" component={ShopPage}/>
         <Route path="/contact" component={ContactPage}/>
         <Route path="/login" component={LoginPage}/>
+        <Route path="/cashout" component={CheckOutPage}/>
       </div>
     </Router>
     );

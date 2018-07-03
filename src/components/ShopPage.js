@@ -3,14 +3,17 @@ import React, { Component } from "react";
 import "./css/Shoppage.css";
 // My Components
 import Card from "./Card";
-import CardDetails from "./CardDetails";
+import ItemForm from "./ItemForm";
 
 // DUmmy data
 
 class ShopPage extends Component {
   state = {
     NumberOfItemsInCart: 0,
-    itemsInCart: []
+    itemsInCart: [],
+    loggedAsVendor: false,
+    loggedAsBuyer: false,
+    toggle: false
   };
   // Method to push Items Clicked in the Array and increment the Cart
   addItem = (data) => {
@@ -43,7 +46,18 @@ class ShopPage extends Component {
     }
   };
 
+  toggleDiv = () =>{
+    this.setState({
+      toggle : !this.state.toggle
+    })
+  }
 
+  cashOut = () => {
+    !this.state.loggedAsBuyer ?
+    window.location.href = "/login"
+    : 
+    window.location.href = "/cashout"
+  }
 
   render() {
     
@@ -54,20 +68,23 @@ class ShopPage extends Component {
             <a className="logo">SHOP STUFF</a>
           </div>
         </div>
-        <div className="header-right">
-          <div># of Items:{this.state.NumberOfItemsInCart}</div>
-          <ul>
-            {this.state.itemsInCart.map(item => {
-              return (
-                <li key={item}> {
-                  (item)
-                   }
-               </li>
-              )
-            })}
-          </ul>
-          <button className="btn btn-primary"> Cash Out </button>
-        </div>
+        { this.state.toggle ? <ItemForm/> : null  }
+        { this.state.loggedAsVendor ?
+          <div className="header-left" >
+              <div> Add Item to Store:</div>
+            <button onClick={this.toggleDiv} className="btn btn-primary"> Add Item </button>
+          </div> 
+          :
+          <div className="header-right">
+            <div># of Items:{this.state.NumberOfItemsInCart}</div>
+              <ul>
+                {this.state.itemsInCart.map(item => {
+                  return (<li key={item}> {(item)}</li>)
+                })}
+              </ul>
+            <button onClick={this.cashOut} className="btn btn-primary"> Cash Out </button>
+          </div>
+        }
         <Card
           addItemToCart={this.addItem}
           deleteItemFromCart={this.deleteItemFromCart}
