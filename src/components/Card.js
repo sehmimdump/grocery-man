@@ -62,7 +62,9 @@ class Card extends Component {
 
       if(this.state.loading) {
         return(
-          <RingLoader />
+          <div className="loadingScreen">
+            <RingLoader loading={this.state.loading} />
+        </div>
         )
       } else {
         return (

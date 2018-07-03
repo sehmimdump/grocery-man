@@ -15,10 +15,18 @@ const navbarData = [
   { title: 'Contact', url: '/contact', id: 3 },
   { title: 'Shop', url: '/shop', id: 2},
   { title: 'Home', url: '/', id: 1}
-  
+];
+
+const navbarDataLoggedIn = [
+  { title: 'Contact', url: '/contact', id: 3 },
+  { title: 'Shop', url: '/shop', id: 2},
+  { title: 'Home', url: '/', id: 1}
 ];
 
 class RouteComponent extends Component {
+  state ={
+    loggedIn : false
+  }
   render() {    
     return (
       <Router>
@@ -26,6 +34,7 @@ class RouteComponent extends Component {
         <div className="Navbar">
           <ul className="navbar-ul">
               {
+                !this.state.loggedIn ? 
                   navbarData.map(item => {
                       return(
                           <li className="navbar-li" key={item.id}>
@@ -35,6 +44,16 @@ class RouteComponent extends Component {
                           </li>
                       )
                   })
+                :
+                navbarDataLoggedIn.map(item => {
+                  return(
+                      <li className="navbar-li" key={item.id}>
+                          <a  href={ item.url }className="navbar-a">
+                              { item.title } 
+                          </a>
+                      </li>
+                  )
+              })
               }
           </ul>
         </div>  

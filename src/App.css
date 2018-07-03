@@ -14,15 +14,16 @@
 .App-title{
   display: block;
   margin: 7% 0 0 0;
-  font-size: 70px;
+  font-size: 65px;
   font-weight: 700;
   letter-spacing: 23px;
 }
 
 .App-title-primary{
   display: block;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 400;
   letter-spacing: 18px;
+  margin-top: 50px;
 }
 
