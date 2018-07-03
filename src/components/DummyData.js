@@ -4,7 +4,7 @@ const dummyDataForData = [
         title : 'Avocado',
         img : 'http://pngimg.com/uploads/avocado/avocado_PNG15516.png',
         price : 1.99,
-        stock : 0,
+        stock : true,
         details: 'The avocado (Persea americana) is a tree, long thought to have originated in South Central Mexico, classified as a member of the flowering plant family ...'
     },
     {

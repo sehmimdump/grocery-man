@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../App.css";
-import "./css/Startpage.css";
+import "../../App.css";
+import "../css/Startpage.css";
 import { RingLoader } from "react-spinners";
 
 class Startpage extends Component {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // CSS
-import "./css/Shoppage.css";
+import "../css/Shoppage.css";
 // My Components
-import Card from "./Card";
-import ItemForm from "./ItemForm";
+import Card from "../Card";
+import ItemForm from "../ItemForm";
 
 // DUmmy data
 
@@ -12,7 +12,7 @@ class ShopPage extends Component {
     NumberOfItemsInCart: 0,
     itemsInCart: [],
     loggedAsVendor: false,
-    loggedAsBuyer: false,
+    loggedAsBuyer: true,
     toggle: false
   };
   // Method to push Items Clicked in the Array and increment the Cart

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ShopPage from "./ShopPage";
 
 class CheckOutPage extends Component {
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // My Componenets
-import ShopPage from "./ShopPage";
-import Startpage from "./Startpage";
-import ContactPage from "./ContactPage";
-import LoginPage from "./LoginPage";
-import CheckOutPage from "./CheckOutPage";
+import ShopPage from "./Pages/ShopPage";
+import Startpage from "./Pages/Startpage";
+import ContactPage from "./Pages/ContactPage";
+import LoginPage from "./Pages/LoginPage";
+import CheckOutPage from "./Pages/CheckOutPage";
+import SignupPage from "./Pages/SignupPage";
 //CSS 
 import './css/Startpage.css';
 
@@ -42,6 +43,7 @@ class RouteComponent extends Component {
         <Route path="/contact" component={ContactPage}/>
         <Route path="/login" component={LoginPage}/>
         <Route path="/cashout" component={CheckOutPage}/>
+        <Route path="/signup" component={SignupPage}/>
       </div>
     </Router>
     );

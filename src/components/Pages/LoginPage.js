@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import GoogleButton from 'react-google-button'
-
-
+import "../css/Card.css";
 const LoginPage = () => {
     return(
     <div className="container"> 
@@ -10,7 +8,7 @@ const LoginPage = () => {
             <div className="col-md-4 col-md-offset-4">
             <div className="panel panel-default">
                 <div className="panel-heading">
-                <h3 className="panel-title">sign in as <b> Buyer </b></h3>
+                <h3 className="panel-title"><b> Buyer </b></h3>
                 </div>
                 <div className="panel-body">
                 <form acceptCharset="UTF-8" role="form">
@@ -24,7 +22,10 @@ const LoginPage = () => {
                     <input className="btn btn-lg btn-success btn-block" type="submit" value="Login"></input>
                     </fieldset>
                 </form>
-                <GoogleButton/>
+                <div>
+                    <a href="/signup"><input type="button" className="btn btn-default btn-block" value="SignUp" /></a>
+                    <a className="btn btn-danger fa fa-google"></a>
+                </div>
                 </div>
             </div>
             </div>
@@ -34,7 +35,7 @@ const LoginPage = () => {
             <div className="col-md-4 col-md-offset-4">
             <div className="panel panel-default">
                 <div className="panel-heading">
-                <h3 className="panel-title">sign in as <b> Vendor </b></h3>
+                <h3 className="panel-title"><b> Vendor </b></h3>
                 </div>
                 <div className="panel-body">
                 <form acceptCharset="UTF-8" role="form">
@@ -48,6 +49,10 @@ const LoginPage = () => {
                     <input className="btn btn-lg btn-success btn-block" type="submit" value="Login"></input>
                     </fieldset>
                 </form>
+                <div>
+                    <a href="/signup"><input type="button" className="btn btn-default btn-block" value="SignUp" /></a>
+                    <a className="btn btn-danger fa fa-google"></a>
+                </div>
                 </div>
             </div>
             </div>

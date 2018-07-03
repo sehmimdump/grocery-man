@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { RingLoader } from "react-spinners";
+
 // Css
 import "./css/Card.css";
 import "./css/CardDetails.css";
-// Data
-// import Data from "./DummyData";
-import CardDetails from "./CardDetails";
 
 class Card extends Component {
   state = {
@@ -18,6 +17,7 @@ class Card extends Component {
     loading: true
   };
 
+  // DATA
   componentDidMount() {
     axios.get(`https://warm-cliffs-96293.herokuapp.com/api/items`)
       .then((response) => {
@@ -30,7 +30,6 @@ class Card extends Component {
       showDetails: !this.state.showDetails,
       selectedIted: item
     });
-    // console.log('---->', item);
   };
 
   render() {
@@ -63,7 +62,7 @@ class Card extends Component {
 
       if(this.state.loading) {
         return(
-          <div>Loading....</div>
+          <RingLoader />
         )
       } else {
         return (
