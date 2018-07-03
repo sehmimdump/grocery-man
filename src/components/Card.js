@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import axios from 'axios';
 // Css
 import "./css/Card.css";
 import "./css/CardDetails.css";
 // Data
-import Data from "./DummyData";
+// import Data from "./DummyData";
 import CardDetails from "./CardDetails";
 
 class Card extends Component {
@@ -12,9 +13,17 @@ class Card extends Component {
     NumberOfItemsInCart: 0,
     itemsInCart: [],
     showDetails: false,
-    selectedIted: ''
+    selectedIted: '',
+    data: [],
+    loading: true
   };
 
+  componentDidMount() {
+    axios.get(`https://warm-cliffs-96293.herokuapp.com/api/items`)
+      .then((response) => {
+        this.setState({data: response.data.items, loading: false})
+      })
+  }
 
   showDiv = (item) => {
     this.setState({
@@ -52,36 +61,42 @@ class Card extends Component {
         </div>
       ) : null
 
-    return (
-      <div className="band">
-        { showDetails }
-        {Data.map((item, index) => {
-          return (
-            <div key={item.id} className="items" index={this.state.index}>
-              <div className="thumb">{item.title} </div>
-              <img className="item-images" src={item.img} alt={item.title} />
-              <div className="item-footer"> Price ${item.price}/lb </div>
-              <button onClick={()=>this.showDiv(Data[index])} className="btn btn-details">
-                Details
-              </button>
-              <button
-                onClick={() => addItem(Data[index])}
-                className="btn btn-danger"
-              >
-                +
-              </button>
-              <button
-                onClick={() => deleteItem(Data[index])}
-                className="btn btn-danger"
-              >
-                -
-              </button>
-
-            </div>
-          );
-        })}
-      </div>
-    );
+      if(this.state.loading) {
+        return(
+          <div>Loading....</div>
+        )
+      } else {
+        return (
+          <div className="band">
+            { showDetails }
+            {this.state.data.map((item, index) => {
+              return (
+                <div key={item.id} className="items" index={this.state.index}>
+                  <div className="thumb">{item.title} </div>
+                  <img className="item-images" src={item.img} alt={item.title} />
+                  <div className="item-footer"> Price ${item.price}/lb </div>
+                  <button onClick={()=>this.showDiv(this.state.data[index])} className="btn btn-details">
+                    Details
+                  </button>
+                  <button
+                    onClick={() => addItem(this.state.data[index])}
+                    className="btn btn-danger"
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => deleteItem(this.state.data[index])}
+                    className="btn btn-danger"
+                  >
+                    -
+                  </button>
+    
+                </div>
+              );
+            })}
+          </div>
+        )
+      }
   }
 }
 
