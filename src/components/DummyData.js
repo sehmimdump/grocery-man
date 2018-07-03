@@ -13,7 +13,7 @@ const dummyDataForData = [
         img : 'http://pngimg.com/uploads/apple/apple_PNG12509.png',
         price : 2.99,
         stock : 0,
-        details: 'An apple is a sweet, edible fruit produced by an apple tree (Malus pumila). Apple trees are cultivated worldwide, and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today. Apples have been grown for thousands of years in Asia and Europe, and were brought to North America by European colonists. Apples have religious and mythological significance in many cultures, including Norse, Greek and European Christian traditions.'
+        details: 'An apple is a sweet, edible fruit produced by an apple tree (Malus pumila).'
     },
     {
         id : 2 ,
@@ -37,7 +37,7 @@ const dummyDataForData = [
         img : 'http://pngimg.com/uploads/blueberries/blueberries_PNG74.png',
         price : 1.99,
         stock : 0,
-        details: 'A berry is a small, pulpy, and often edible fruit. Berries are typically juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present.[1] Common examples are strawberries, raspberries, blueberries, red currants, and blackcurrants.[2]'
+        details: 'A berry is a small, pulpy, and often edible fruit. Berries are typically juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present.'
     },
     {
         id : 5 ,
@@ -45,7 +45,7 @@ const dummyDataForData = [
         img : 'http://pngimg.com/uploads/mango/mango_PNG9186.png',
         price : 2.99,
         stock : 0,
-        details: 'The majority of these species are found in nature as wild mangoes. The genus belongs to the cashew family Anacardiaceae. Mangoes are native to South Asia,[1][2] from where the "common mango" or "Indian mango", Mangifera indica, has been distributed worldwide to become one of the most widely cultivated fruits in the tropics. Other Mangifera species (e.g. horse mango, Mangifera foetida) are grown on a more localized basis.'
+        details: 'The majority of these species are found in nature as wild mangoes. The genus belongs to the cashew family Anacardiaceae.'
     },
     {
         id : 6 ,
@@ -53,7 +53,7 @@ const dummyDataForData = [
         img : 'http://pngimg.com/uploads/orange/orange_PNG809.png',
         price : 1.99,
         stock : 0,
-        details: 'Oranges must be mature when harvested. In the United States, laws forbid harvesting immature fruit for human consumption in Texas, Arizona, California and Florida.[76] Ripe oranges, however, often have some green or yellow-green color in the skin. Ethylene gas is used to turn green skin to orange. '
+        details: 'Oranges must be mature when harvested. In the United States, laws forbid harvesting immature fruit for human consumption in Texas, Arizona, California and Florida.'
     },
     {
         id : 7 ,

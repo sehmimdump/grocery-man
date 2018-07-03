@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import GoogleButton from 'react-google-button'
 
 
 const LoginPage = () => {
@@ -23,6 +24,7 @@ const LoginPage = () => {
                     <input className="btn btn-lg btn-success btn-block" type="submit" value="Login"></input>
                     </fieldset>
                 </form>
+                <GoogleButton/>
                 </div>
             </div>
             </div>

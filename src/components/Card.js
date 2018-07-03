@@ -39,7 +39,7 @@ class Card extends Component {
           <div className="Card-details">
             <h1> {this.state.selectedIted.title} </h1>
             <img className="item-images" src={this.state.selectedIted.img} alt={this.state.selectedIted.title} />
-            <p>Details: {this.state.selectedIted.details} </p>
+            <p className="well">Details: {this.state.selectedIted.details} </p>
             <div>Price: {this.state.selectedIted.price}/lb </div>
             <div>Stock: {this.state.selectedIted.stock} Batches </div>
             <button onClick={()=>addItem(this.state.selectedIted)} > Add To cart </button>
