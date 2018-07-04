@@ -12,7 +12,7 @@ class ShopPage extends Component {
     NumberOfItemsInCart: 0,
     itemsInCart: [],
     loggedAsVendor: false,
-    loggedAsBuyer: true,
+    loggedAsBuyer: false,
     toggle: false
   };
   // Method to push Items Clicked in the Array and increment the Cart
