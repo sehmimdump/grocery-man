@@ -62,9 +62,12 @@ class Card extends Component {
 
       if(this.state.loading) {
         return(
-          <div className="loadingScreen">
-            <RingLoader loading={this.state.loading} />
-        </div>
+          <div className=""><br /><br /><br /><br />
+            <h1 className="loading-header" >PLS WAIT WHILE WE FETCH DATA FROM THE SERVER</h1>
+            <img className="loading-pic" src="https://vignette.wikia.nocookie.net/family-guy-the-quest-for-stuff/images/b/bc/Consuela-animation-059idlepic%404x.png/revision/latest?cb=20140420130828"></img>
+            <p className="loading-sub"> Free Services, Am I right? </p>
+            <RingLoader className="loading-ring" loading={this.state.loading} />
+          </div>
         )
       } else {
         return (

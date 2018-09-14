@@ -7,14 +7,17 @@ import ItemForm from "../ItemForm";
 
 // DUmmy data
 
+
 class ShopPage extends Component {
   state = {
     NumberOfItemsInCart: 0,
     itemsInCart: [],
     loggedAsVendor: false,
-    loggedAsBuyer: true,
+    loggedAsBuyer: false,
     toggle: false
   };
+
+
   // Method to push Items Clicked in the Array and increment the Cart
   addItem = (data) => {
     this.setState({

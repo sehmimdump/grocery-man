@@ -25,7 +25,7 @@ const navbarDataLoggedIn = [
 
 class RouteComponent extends Component {
   state ={
-    loggedIn : false
+    loggedIn : true
   }
   render() {    
     return (

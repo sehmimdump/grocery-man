@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "../css/Card.css";
+
+    
+
 const LoginPage = () => {
     return(
     <div className="container"> 
@@ -56,6 +59,12 @@ const LoginPage = () => {
                 </div>
             </div>
             </div>
+        </div>
+        
+        <div className="well floating-well">
+            <h1> Hello Recruters! </h1>
+            <img className="loading-pic" src="https://vignette.wikia.nocookie.net/family-guy-the-quest-for-stuff/images/b/bc/Consuela-animation-059idlepic%404x.png/revision/latest?cb=20140420130828"></img>
+            <h5> This part isnt done yet </h5>
         </div>
     </div>  
             
