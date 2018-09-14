@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import "../css/Card.css";
 
     
@@ -63,3 +62,5 @@ const LoginPage = () => {
             
     )
 } 
+
+export default LoginPage;
